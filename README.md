@@ -18,5 +18,5 @@ samples, guidance on mobile development, and a full API reference.
 ![splash-dark](https://github.com/user-attachments/assets/0c29717d-e0a4-48f8-ad1d-1b0cc81e34b3)
 ![home](https://github.com/user-attachments/assets/1fcbd3c0-83bf-436f-8802-6e4d959e1c0d)    
 ![home dark](https://github.com/user-attachments/assets/497b11f2-2ae6-4a89-a232-11b6d9d3a39e)
-![iPhone 15 Mockup, Perspective](https://github.com/user-attachments/assets/948af096-e3b1-4221-b573-09f67f33af78)
+
 
