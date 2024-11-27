@@ -1,19 +1,12 @@
 # t_store
+Feature Architecture: Applied for modular and scalable code structure.
+ Firebase: Integrated for authentication, real-time database management (Firestore), and
+ storage (Firebase Storage).
+ GetX: Utilized for efficient state management and smooth data flow.
+ Responsive UI: Designed to adapt to various screen sizes and orientations.
+ Dark & Light Mode: Offered theme options to enhance user experience based on
+ preferences.
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 ![splash](https://github.com/user-attachments/assets/9e6d6243-3d2e-44a8-bf6a-6e650bfb3c1a)  
 ![splash-dark](https://github.com/user-attachments/assets/0c29717d-e0a4-48f8-ad1d-1b0cc81e34b3)
 ![onboarding 1](https://github.com/user-attachments/assets/86c42a11-4c04-4cd2-beba-46f340afc73c)
