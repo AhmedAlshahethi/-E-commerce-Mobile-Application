@@ -10,6 +10,7 @@ environment:
 
 #------------------------------------------- PACKAGES --------------------------------------#
 dependencies:
+  cached_network_image: ^3.4.1
   carousel_slider: ^5.0.0
   cloud_firestore: ^5.4.4
   connectivity_plus: ^6.1.0
@@ -26,6 +27,7 @@ dependencies:
   google_sign_in: ^6.2.2
   http: ^1.2.2
   iconsax: ^0.0.8
+  image_picker: ^1.1.2
   intl: ^0.19.0
   logger: ^2.4.0
   lottie: ^3.1.3

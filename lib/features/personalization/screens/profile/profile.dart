@@ -9,6 +9,7 @@ import 'package:t_store/features/personalization/screens/profile/widgets/change_
 import 'package:t_store/features/personalization/screens/profile/widgets/profile_menu.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
+import 'package:t_store/utils/loaders/shimmer_effect.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -31,13 +32,29 @@ class ProfileScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    const CircularImage(
-                      image: AppImageStrings.user,
-                      width: 80,
-                      height: 80,
+                    Obx(
+                      () {
+                        final networkImage =
+                            controller.user.value.profilePicture;
+                        final image = networkImage.isNotEmpty
+                            ? networkImage
+                            : AppImageStrings.user;
+                        return controller.imageUploading.value
+                            ? const TShimmerEffect(
+                                width: 80,
+                                height: 80,
+                                radius: 80,
+                              )
+                            : CircularImage(
+                                image: image,
+                                width: 80,
+                                height: 80,
+                                isNetworkImage: networkImage.isNotEmpty,
+                              );
+                      },
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () => controller.uploadUserProfileImage(),
                       child: const Text('change your profile picture'),
                     ),
                   ],
