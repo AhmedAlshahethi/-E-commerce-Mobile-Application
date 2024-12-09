@@ -1,7 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
+import 'package:t_store/utils/loaders/shimmer_effect.dart';
 
 class VerticalImageText extends StatelessWidget {
   const VerticalImageText({
@@ -11,11 +13,15 @@ class VerticalImageText extends StatelessWidget {
     this.textColor = Colors.white,
     this.backgroundColor,
     this.onTap,
+    this.isNetworkImage = true,
   });
   final String text, image;
   final Color textColor;
   final Color? backgroundColor;
   final VoidCallback? onTap;
+  final bool isNetworkImage;
+
+  get overlayColor => null;
 
   @override
   Widget build(BuildContext context) {
@@ -39,13 +45,23 @@ class VerticalImageText extends StatelessWidget {
                     (dark ? AppColors.black : AppColors.white),
               ),
               child: Center(
-                child: Image(
-                  image: AssetImage(
-                    image,
-                  ),
-                  fit: BoxFit.cover,
-                  color: dark ? AppColors.light : AppColors.dark,
-                ),
+                child: isNetworkImage
+                    ? CachedNetworkImage(
+                        imageUrl: image,
+                        color: dark ? AppColors.light : AppColors.dark,
+                        fit: BoxFit.cover,
+                        progressIndicatorBuilder: (context, url, progress) =>
+                            const TShimmerEffect(width: 55, height: 55),
+                        errorWidget: (context, url, error) =>
+                            const Icon(Icons.error),
+                      )
+                    : Image(
+                        image: AssetImage(
+                          image,
+                        ),
+                        fit: BoxFit.cover,
+                        color: dark ? AppColors.light : AppColors.dark,
+                      ),
               ),
             ),
             const SizedBox(
