@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:t_store/bindings/general_bindings.dart';
+import 'package:t_store/routes/app_route.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/theme/theme.dart';
 
@@ -14,6 +15,7 @@ class TStoreApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       initialBinding: GeneralBindings(),
+      getPages: AppRoute.pages,
       // home: const OnBoardingScreen(),
       // show loader while authentication repository deciding to show relvant screen
       home: Scaffold(
