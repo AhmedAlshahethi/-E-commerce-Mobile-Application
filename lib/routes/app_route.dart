@@ -7,6 +7,7 @@ import 'package:t_store/features/authentication/screens/signup/signup.dart';
 import 'package:t_store/features/personalization/screens/addresses/user_addresses.dart';
 import 'package:t_store/features/personalization/screens/profile/profile.dart';
 import 'package:t_store/features/personalization/screens/settings/settings.dart';
+import 'package:t_store/features/shop/models/product_model.dart';
 import 'package:t_store/features/shop/screens/cart/cart.dart';
 import 'package:t_store/features/shop/screens/checkout/checkout.dart';
 import 'package:t_store/features/shop/screens/favourite/favourite.dart';
@@ -28,7 +29,8 @@ class AppRoute {
     GetPage(
         name: TRouts.productReviews, page: () => const ProductReviewsRating()),
     GetPage(
-        name: TRouts.productDetail, page: () => const ProductDetailedScreen()),
+        name: TRouts.productDetail,
+        page: () => ProductDetailedScreen(productModel: ProductModel.empty())),
     GetPage(name: TRouts.order, page: () => const OrdersScreen()),
     GetPage(name: TRouts.checkout, page: () => const CheckoutScreen()),
     GetPage(name: TRouts.cart, page: () => const CartScreen()),

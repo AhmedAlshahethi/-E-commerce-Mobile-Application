@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
+import 'package:t_store/features/shop/models/product_model.dart';
 import 'package:t_store/features/shop/screens/product_detailed/widgets/bottom_to_add_cart.dart';
 import 'package:t_store/features/shop/screens/product_detailed/widgets/product_attributs.dart';
 import 'package:t_store/features/shop/screens/product_detailed/widgets/product_image_slider.dart';
@@ -12,8 +13,8 @@ import 'package:t_store/features/shop/screens/product_reviews_rating/product_rev
 import 'package:t_store/utils/constants/sizes.dart';
 
 class ProductDetailedScreen extends StatelessWidget {
-  const ProductDetailedScreen({super.key});
-
+  const ProductDetailedScreen({super.key, required this.productModel});
+  final ProductModel productModel;
   @override
   Widget build(BuildContext context) {
     // var dark = AppHelperFunctions.isDarkMode(context);

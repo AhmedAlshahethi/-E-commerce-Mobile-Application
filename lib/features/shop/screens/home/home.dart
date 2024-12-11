@@ -4,13 +4,14 @@ import 'package:t_store/common/widgets/custom_shapes/containers/primary_header_c
 import 'package:t_store/common/widgets/custom_shapes/containers/search_containers.dart';
 import 'package:t_store/common/widgets/layouts/grid_view.dart';
 import 'package:t_store/common/widgets/products/products_cards/product_card_vertical.dart';
+import 'package:t_store/common/widgets/shimmers/vertical_prodcut_shimmer.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
+import 'package:t_store/features/shop/controllers/product_controller.dart';
 import 'package:t_store/features/shop/screens/all_products/all_products.dart';
 import 'package:t_store/features/shop/screens/home/widgets/home_app_bar.dart';
 import 'package:t_store/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:t_store/features/shop/screens/home/widgets/promo_slider.dart';
 import 'package:t_store/utils/constants/colors.dart';
-import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -18,6 +19,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -90,9 +92,25 @@ class HomeScreen extends StatelessWidget {
                   ),
 
                   //Popular Products
-                  AppGridView(
-                    itemCount: 4,
-                    itemBuilder: (_, index) => const ProductCardVertical(),
+                  Obx(
+                    () {
+                      if (controller.isLoading.value) {
+                        return const VerticalProdcutShimmer();
+                      }
+
+                      if (controller.featuredProducts.isEmpty) {
+                        return Text(
+                          'No Data Found',
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        );
+                      }
+                      return AppGridView(
+                        itemCount: controller.featuredProducts.length,
+                        itemBuilder: (_, index) => ProductCardVertical(
+                          productModel: controller.featuredProducts[index],
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
